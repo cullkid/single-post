@@ -6,7 +6,6 @@ import {
   ReplyButton,
   ReplyContainer,
   ParentContainer,
-  CommentFlex,
   AutorContainer,
   CommentDate,
   CommentUsername,
@@ -45,21 +44,17 @@ const Comment = ({
   const createdAt = new Date(comment.createdAt).toLocaleDateString();
 
   return (
-    <ParentContainer key={comment.id} className="comment">
+    <ParentContainer key={comment.id}>
       <CommentContainer>
-        <CommentFlex className="comment-content">
-          <BsPersonCircle size={30} />
-          <AutorContainer>
-            <FlexChild>
-              <CommentUsername>{comment.username}</CommentUsername>
-
-              {!isEditing && (
-                <CommentBody CommentBody>{comment.body}</CommentBody>
-              )}
-            </FlexChild>
-            <CommentDate>{createdAt}</CommentDate>
-          </AutorContainer>
-        </CommentFlex>
+        <AutorContainer>
+          <BsPersonCircle size={20} />
+          <CommentUsername>{comment.username}</CommentUsername>
+        </AutorContainer>{" "}
+        {!isEditing && <CommentBody CommentBody>{comment.body}</CommentBody>}
+        <FlexChild>
+          {/* <CommentFlex></CommentFlex> */}
+          <CommentDate>{createdAt}</CommentDate>
+        </FlexChild>
         {isEditing && (
           <CommentForm
             submitLabel="Update"

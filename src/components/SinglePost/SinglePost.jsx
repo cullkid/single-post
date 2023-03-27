@@ -8,13 +8,9 @@ import {
   SecondFlexContainer,
   ImgElement,
   PostContent,
-  CommentWrap,
-  CommentsHeader,
 } from "./style";
 import trem from "../../Image/trem.jpg";
 import Comments from "../comments/Comments";
-
-import { FaRegCommentDots } from "react-icons/fa";
 
 const SinglePost = () => {
   // const [open, setOpen] = useState(false);
@@ -51,13 +47,6 @@ const SinglePost = () => {
               eius ab beatae, vel, enim neque tenetur, tempore aliquid itaque
               recusandae et rerum eligendi natus!
             </PostContent>
-
-            <CommentWrap>
-              <FaRegCommentDots />
-              <CommentsHeader className="comments-title">
-                Comments
-              </CommentsHeader>
-            </CommentWrap>
 
             <Comments currentUserId="1" />
           </SecondFlexContainer>

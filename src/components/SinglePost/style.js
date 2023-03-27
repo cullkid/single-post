@@ -4,13 +4,16 @@ export const Container = styled.div`
   background-color: black;
   padding-top: 20px;
   padding-bottom: 20px;
+  height: 100%;
 `;
 
 export const ContainerWrap = styled.div`
   width: 85%;
+  height: 500px;
   margin-left: auto;
   margin-right: auto;
   background-color: white;
+  position: relative;
 `;
 
 export const HeaderParagraph = styled.h1`
@@ -34,17 +37,22 @@ export const FlexContainer = styled.div`
   }
 `;
 
-export const FirstFlexContainer = styled.div``;
-
-export const SecondFlexContainer = styled.div`
-  flex-grow: 2;
+export const FirstFlexContainer = styled.div`
+  display: flex;
+  margin-top: 0;
+  align-items: flex-start;
 `;
+
+export const SecondFlexContainer = styled.div``;
 
 export const ImgContainer = styled.div``;
 
 export const ImgElement = styled.img`
   width: 400px;
   height: 400px;
+  overflow: hidden;
+  dipslay: flex;
+  align-items: flex-start;
 `;
 
 export const PostContent = styled.p`

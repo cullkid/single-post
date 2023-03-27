@@ -13,6 +13,7 @@ import {
   CommentsHeader,
   WriteComment,
   ReuseComment,
+  CommentLenght,
 } from "./style";
 
 const Comments = ({ currentUserId }) => {
@@ -65,29 +66,31 @@ const Comments = ({ currentUserId }) => {
     });
   }, []);
 
+  const lenght = rootComments.length;
+
   return (
     <CommentsContainer>
       <CommentWrap>
-        <CommentsHeader className="comments-title">Comments</CommentsHeader>
+        <CommentsHeader className="comments-title">
+          Comments <CommentLenght>({lenght})</CommentLenght>
+        </CommentsHeader>
       </CommentWrap>
 
-      <div className="comments-container">
-        {rootComments.map((rootComment) => (
-          <ReuseComment>
-            <Comment
-              key={rootComment.id}
-              comment={rootComment}
-              replies={getReplies(rootComment.id)}
-              activeComment={activeComment}
-              setActiveComment={setActiveComment}
-              addComment={addComment}
-              deleteComment={deleteComment}
-              updateComment={updateComment}
-              currentUserId={currentUserId}
-            />
-          </ReuseComment>
-        ))}
-      </div>
+      {rootComments.map((rootComment) => (
+        <ReuseComment>
+          <Comment
+            key={rootComment.id}
+            comment={rootComment}
+            replies={getReplies(rootComment.id)}
+            activeComment={activeComment}
+            setActiveComment={setActiveComment}
+            addComment={addComment}
+            deleteComment={deleteComment}
+            updateComment={updateComment}
+            currentUserId={currentUserId}
+          />
+        </ReuseComment>
+      ))}
       <WriteComment>Write comment</WriteComment>
       <CommentForm submitLabel="Write" handleSubmit={addComment} />
     </CommentsContainer>
